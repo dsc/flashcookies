@@ -95,7 +95,7 @@ class FlashCookies(object):
         return md
     
     def inspect(self, domain, name='*', path='', metadata=False, format='json', **kv):
-        files = self.find(domain, name, path, metadata)
+        files = self.find(domain, name, path, metadata or (format == 'list'))
         if format == 'list':
             for md in files:
                 print md['relpath']
